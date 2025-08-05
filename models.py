@@ -1,10 +1,12 @@
 from datetime import datetime, timezone
-from enum import Enum
+from enum import Enum as PyEnum
 from db import *
+from sqlalchemy import Enum as SQLEnum
 
-class SubscriptionStatus(Enum):
-    ACTIVE = 'Active'
-    CANCELLED = 'Cancelled'
+
+class Status(PyEnum):
+    ACTIVE = 'active'
+    CANCELLED = 'cancelled'
 
     
 
@@ -37,7 +39,7 @@ class Subscription(Model):
     plan_id = Column(Integer, ForeignKey("plans.id"), nullable=False)
     start_date = Column(DateTime,  default=lambda: datetime.now(timezone.utc))
     end_date = Column(DateTime)
-    status = Column(SubscriptionStatus, default=SubscriptionStatus.ACTIVE, index=True)
+    status = Column(SQLEnum(Status), default=Status.ACTIVE, index=True)
 
     user = relationship("User", back_populates="subscriptions")
     plan = relationship("Plan", back_populates="subscriptions")
