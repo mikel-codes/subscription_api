@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_migrate import Migrate
 from db import db, init_db
 from routes.auth import auth_bp
 from routes.subscription import sub_bp
@@ -8,6 +9,8 @@ app = Flask(__name__)
 app.config.from_object("config.Config")
 
 db.init_app(app) 
+migrate = Migrate(app, db)
+
 with app.app_context():
     init_db()
 
