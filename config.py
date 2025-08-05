@@ -2,4 +2,5 @@ import os
 class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///subscriptions.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey")
+    SECRET_KEY  = os.getenv("SECRET_KEY", "supersecretkey")
+    ENVIRONMENT = os.getenv("ENVIRONMENT", 'development')
