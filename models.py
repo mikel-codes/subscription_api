@@ -45,3 +45,7 @@ class Subscription(Model):
     __table_args__ = (
         Index("idx_user_status", "user_id", "status"),
     )
+
+    def cancel(self):
+        self.status = Status.CANCELLED
+        db.session.commit()
