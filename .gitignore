@@ -1,0 +1,54 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+env.bak/
+*.env
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+*.out
+
+# Compiled bytecode
+*.pyc
+
+# Coverage & Test
+.coverage
+coverage.xml
+.pytest_cache/
+htmlcov/
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pip cache
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
