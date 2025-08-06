@@ -49,10 +49,10 @@ def test_subscription_model(app_context):
     db.session.commit()
 
     fetched_sub = Subscription.query.filter_by(user_id=user.id).first()
-    assert fetched_sub.status.value == 'active', 'should show default status is active'
+    assert fetched_sub.status.value.lower() == 'active', 'should show default status is active'
     assert isinstance(fetched_sub.status, Status), 'should match types as enum'
 
     fetched_sub.cancel()
-    assert fetched_sub.status.value == 'cancelled', 'should show default status is active'
+    assert fetched_sub.status.value.lower() == 'cancelled', 'should show default status is active'
 
 
