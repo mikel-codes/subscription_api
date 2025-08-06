@@ -124,11 +124,13 @@ docker-compose exec web pytest -v
 | POST   | `/auth/register`              | Register a new user       |
 | POST   | `/auth/login`                 | Authenticate user         |
 | GET    | `/plans/`                     | List subscription plans   |
+| POST   | `/plans/`                     | Create a subscription plan|
 | POST   | `/subscriptions/subscribe`    | Subscribe to a plan       |
 | PUT    | `/subscriptions/<id>/upgrade` | Upgrade user subscription |
-| POST   | `/subscriptions/<id>/cancel`  | Cancel subscription       |
+| DELETE | `/subscriptions/<id>/cancel`  | Cancel subscription       |
 | GET    | `/subscriptions/`             | List all subscriptions    |
 
+**where <id> is user.id**
 ---
 
 ## **7 Project Structure**
