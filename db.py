@@ -15,6 +15,7 @@ Enum = db.Enum
 relationship = db.relationship
 JSON = db.JSON
 Index = db.Index
+CheckConstraint = db.CheckConstraint
 
 
 def init_db():
