@@ -33,7 +33,7 @@ Optimized with **SQLAlchemy + raw SQL for performance** and **Alembic migrations
 ### **Clone the Repository**
 
 ```bash
-git clone https://github.com/<your-username>/subscription_api.git
+git clone https://github.com/mikel-codes/subscription_api.git
 cd subscription_api
 ```
 
@@ -58,7 +58,7 @@ pip install -r requirements.txt
 
 ### **Configuration**
 
-* Local SQLite (default): `sqlite:///instance/subscriptions.db`
+* Local SQLite (default): `sqlite://subscriptions.db`
 * MySQL Example:
 
   ```bash
@@ -159,7 +159,3 @@ subscription_api/
 * **Active subscription query is indexed** for efficiency.
 
 ---
-
-I can also add a **Quick Start section** with ready-to-run **cURL examples** for registration, subscription, and upgrade if you want the README to be developer-friendly.
-
-Do you want me to add those quick API usage examples?
