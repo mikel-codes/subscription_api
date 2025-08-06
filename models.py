@@ -39,13 +39,20 @@ class Subscription(Model):
     plan_id = Column(Integer, ForeignKey("plans.id"), nullable=False)
     start_date = Column(DateTime,  default=lambda: datetime.now(timezone.utc))
     end_date = Column(DateTime)
-    status = Column(SQLEnum(Status), default=Status.ACTIVE, index=True)
 
+    status = Column(
+        Enum(Status, values_callable=lambda x: [e.value for e in Status], native_enum=False),
+        nullable=False,
+        default=Status.ACTIVE,
+        server_default=Status.ACTIVE.value,  # DB-level default
+        index=True
+    )
     user = relationship("User", back_populates="subscriptions")
     plan = relationship("Plan", back_populates="subscriptions")
 
     __table_args__ = (
         Index("idx_user_status", "user_id", "status"),
+        CheckConstraint("status IN ('active','cancelled')", name="chk_status"),
     )
 
     def cancel(self):
